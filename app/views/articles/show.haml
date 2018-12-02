@@ -1,0 +1,15 @@
+%div.container
+	%h5= @article.title
+	%p= @article.text
+
+	= render @article.comments
+
+	%div
+		%h5 Add a comment:
+
+	%div.add_comment_block
+		= render 'comments/form'
+
+	%div
+		= link_to 'Back', articles_path
+		= link_to 'Edit', edit_article_path(@article)

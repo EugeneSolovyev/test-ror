@@ -1,0 +1,16 @@
+= form_with model: @article, local: true do |form|
+	- if @article.errors.any?
+		#error_explanation.alert.alert-danger
+			%h2
+				= pluralize(@article.errors.count, 'error') 
+				prohobited this article from being saved:
+			%ul
+				- @article.errors.full_messages.each do |msg|
+					%li= msg
+	
+	%div.article__control
+		= form.text_field :title, :class => 'form-control', :placeholder => 'Title'
+	%div.article__control
+		= form.text_area :text, :class => 'form-control', :placeholder => 'Write something'
+	%div.article__control
+		= form.submit 'Add new' ,:class => 'btn btn-primary btn-block'

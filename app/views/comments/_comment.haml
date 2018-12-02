@@ -1,0 +1,5 @@
+%div.card
+	%div.card-body
+		%h5.card-title= comment.commenter
+		%p.card-text= comment.body
+		= link_to 'Destroy Comment', [ comment.article, comment ], method: :delete, :class => 'btn btn-primary'

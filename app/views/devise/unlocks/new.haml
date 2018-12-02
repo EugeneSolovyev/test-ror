@@ -1,0 +1,15 @@
+%div.authentication-wrapper
+  %div.authentication
+    %h5 Resend unlock instructions
+    = render 'additional/logo'
+
+    = form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f|
+      = devise_error_messages!
+
+      %div.field
+        = f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => 'Email', :class => 'form-control'
+
+      %div.actions
+        = f.submit "Resend unlock instructions", :class => 'btn btn-primary btn-block'
+
+    = render "devise/shared/links"

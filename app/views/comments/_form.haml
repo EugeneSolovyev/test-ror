@@ -1,0 +1,7 @@
+= form_with(model: [ @article, @article.comments.build ], local: true) do |form|
+	%div.article__control
+		= form.text_field :commenter, :class => 'form-control', :placeholder => 'Your name'
+	%div.article__control
+		= form.text_area :body, :class => 'form-control', :placeholder => 'Write something'
+	%div.article__control
+		= form.submit 'Add comment', :class => 'btn btn-primary btn-block'
